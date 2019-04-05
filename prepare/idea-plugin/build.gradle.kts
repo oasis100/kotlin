@@ -28,6 +28,11 @@ val projectsToShadow by extra(listOf(
         ":core:descriptors.jvm",
         ":core:deserialization",
         ":idea:eval4j",
+        ":idea:jvm-debugger:jvm-debugger-util",
+        ":idea:jvm-debugger:jvm-debugger-core",
+        ":idea:jvm-debugger:jvm-debugger-evaluation",
+        ":idea:jvm-debugger:jvm-debugger-sequence",
+        ":idea:idea-j2k",
         ":idea:formatter",
         ":compiler:psi",
         *if (project.findProperty("fir.enabled") == "true") {

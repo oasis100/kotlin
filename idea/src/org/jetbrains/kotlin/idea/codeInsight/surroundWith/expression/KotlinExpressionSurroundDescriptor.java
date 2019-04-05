@@ -16,15 +16,15 @@
 
 package org.jetbrains.kotlin.idea.codeInsight.surroundWith.expression;
 
-import com.intellij.lang.surroundWith.SurroundDescriptor;
 import com.intellij.lang.surroundWith.Surrounder;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.kotlin.idea.codeInsight.CodeInsightUtils;
+import org.jetbrains.kotlin.idea.core.surroundWith.KotlinExpressionSurroundDescriptorBase;
+import org.jetbrains.kotlin.idea.core.util.CodeInsightUtils;
 import org.jetbrains.kotlin.psi.KtExpression;
 
-public class KotlinExpressionSurroundDescriptor implements SurroundDescriptor {
+public class KotlinExpressionSurroundDescriptor extends KotlinExpressionSurroundDescriptorBase {
     private static final Surrounder[] SURROUNDERS = {
             new KotlinNotSurrounder(),
             new KotlinStringTemplateSurrounder(),
