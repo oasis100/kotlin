@@ -17,7 +17,7 @@ import org.jetbrains.kotlin.gradle.logging.kotlinInfo
 import org.jetbrains.kotlin.konan.KonanVersion
 import org.jetbrains.kotlin.konan.MetaVersion
 import org.jetbrains.kotlin.konan.target.HostManager
-import org.jetbrains.kotlin.konan.util.DependencyDirectories
+import org.jetbrains.kotlin.konan.util.DependencyProcessor
 import java.io.File
 
 class NativeCompilerDownloader(
@@ -99,14 +99,14 @@ class NativeCompilerDownloader(
         logger.lifecycle("Unpacking Kotlin/Native compiler (version $versionString)...")
         project.copy {
             it.from(archiveFileTree(archive))
-            it.into(DependencyDirectories.localKonanDir)
+            it.into(DependencyProcessor.localKonanDir)
         }
 
         removeRepo(repo)
     }
 
     val compilerDirectory: File
-        get() = DependencyDirectories.localKonanDir.resolve("kotlin-native-$simpleOsName-$compilerVersion")
+        get() = DependencyProcessor.localKonanDir.resolve("kotlin-native-$simpleOsName-$compilerVersion")
 
     fun downloadIfNeeded() {
         if (KonanCompilerRunner(project).classpath.isEmpty) {
