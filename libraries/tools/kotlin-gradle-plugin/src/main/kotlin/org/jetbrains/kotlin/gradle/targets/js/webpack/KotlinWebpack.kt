@@ -117,6 +117,10 @@ open class KotlinWebpack : DefaultTask() {
                 runtimeOnly(npm("webpack", "4.29.6"))
                 runtimeOnly(npm("webpack-cli", "3.3.0"))
                 runtimeOnly(npm("webpack-bundle-analyzer", "3.3.2"))
+
+                // for source map support only
+                runtimeOnly(npm("source-map-loader", "0.2.4"))
+                runtimeOnly(npm("source-map-support", "0.5.12"))
             }
 
             project.createOrRegisterTask<KotlinWebpack>("webpack") {
